@@ -34,7 +34,7 @@
 
 (function () {
   if (!("IntersectionObserver" in window) || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  var sel = ".casa-intro > *, .pair figure, .paste-photo, .paste-text > *, .tortas-head > *, .cakes li, .terms, .rieles-text > *, .rieles-photo, .rincones-head, .gallery img, .visita-head > *, .hours li, .where > *, footer .wrap > *";
+  var sel = ".head > *, .menu li, .photos img, .cakes li, .terms, .rieles-video, .hours li, .contact li, footer .wrap > *";
   var els = Array.prototype.slice.call(document.querySelectorAll(sel));
   var vh = window.innerHeight;
   var io = new IntersectionObserver(function (entries) {
