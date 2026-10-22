@@ -136,13 +136,13 @@
 
 // ---------- Pedido de tortas ----------
 // Número de WhatsApp de Andrea con código de país, sin espacios ni "+" (por ejemplo "5493411234567").
-// Mientras esté vacío, el pedido se envía por mensaje directo de Instagram.
+// Vacío (demo): WhatsApp se abre con el pedido armado y deja elegir el contacto.
 var WHATSAPP = "";
-var INSTAGRAM = "at_pasteleria_creativa";
 
 (function () {
+  var sheet = document.getElementById("encargar");
   var form = document.getElementById("order-form");
-  if (!form) return;
+  if (!sheet || !form) return;
   var sel = document.getElementById("o-cake");
   var date = document.getElementById("o-date");
   var time = document.getElementById("o-time");
@@ -150,9 +150,8 @@ var INSTAGRAM = "at_pasteleria_creativa";
   var notes = document.getElementById("o-notes");
   var summary = document.getElementById("o-summary");
   var error = document.getElementById("o-error");
-  var send = document.getElementById("o-send");
-  var note = document.getElementById("o-note");
   var cakes = Array.prototype.slice.call(document.querySelectorAll(".cake"));
+  var cakeName = function (li) { return li.querySelector(".c-name").textContent; };
 
   // Opciones a partir de la carta, para no repetir datos
   document.querySelectorAll(".cake-group").forEach(function (g) {
@@ -160,14 +159,14 @@ var INSTAGRAM = "at_pasteleria_creativa";
     og.label = g.querySelector("h3").textContent;
     g.querySelectorAll(".cake").forEach(function (li) {
       var o = document.createElement("option");
-      o.value = li.querySelector(".c-name").textContent;
+      o.value = cakeName(li);
       o.textContent = o.value + " · " + li.querySelector(".c-price").textContent;
       og.appendChild(o);
     });
     sel.appendChild(og);
   });
   var info = function (n) {
-    var li = cakes.find(function (c) { return c.querySelector(".c-name").textContent === n; });
+    var li = cakes.find(function (c) { return cakeName(c) === n; });
     return li ? { size: li.querySelector(".c-size").textContent, price: li.querySelector(".c-price").textContent } : { size: "", price: "" };
   };
 
@@ -179,11 +178,12 @@ var INSTAGRAM = "at_pasteleria_creativa";
   date.min = iso(min);
   date.value = iso(min);
   var days = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
-  var nice = function (v) { var p = v.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]); return days[d.getDay()] + " " + d.getDate() + "/" + (d.getMonth() + 1); };
+  var asDate = function (v) { var p = v.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); };
+  var nice = function (v) { var d = asDate(v); return days[d.getDay()] + " " + d.getDate() + "/" + (d.getMonth() + 1); };
 
   function check() {
-    var p = date.value.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]);
     if (!date.value) return "Elegí el día de retiro.";
+    var d = asDate(date.value);
     if (date.value < date.min) return "Las tortas se encargan con 48 horas de anticipación. Elegí desde el " + nice(date.min) + ".";
     if (d.getDay() === 1 || d.getDay() === 2) return "Lunes y martes está cerrado. Elegí otro día de retiro.";
     if (d.getDay() === 0 && time.value === "a la tarde") return "Los domingos abrimos solo a la mañana (8 a 13 h).";
@@ -192,44 +192,81 @@ var INSTAGRAM = "at_pasteleria_creativa";
   }
   function update() {
     var i = info(sel.value);
-    summary.textContent = sel.value + " · " + i.size + " · " + i.price + (date.value ? " · retiro el " + nice(date.value) + " " + time.value : "");
+    summary.textContent = i.size + " · " + i.price;
     error.hidden = true;
   }
   [sel, date, time, name].forEach(function (el) { el.addEventListener("change", update); });
 
-  send.querySelector("span").textContent = WHATSAPP ? "Enviar por WhatsApp" : "Enviar por Instagram";
-  if (!WHATSAPP) note.textContent = "Al tocar el botón copiamos tu mensaje y se abre el chat de Instagram: solo pegalo y envialo. Retiro en Alberdi 913, sin envío.";
+  // Panel que sube desde abajo
+  function open(cake) {
+    if (cake) sel.value = cake;
+    update();
+    if (typeof sheet.showModal === "function") { if (!sheet.open) sheet.showModal(); }
+    else sheet.setAttribute("open", "");
+    document.documentElement.classList.add("sheet-open");
+  }
+  function close() {
+    sheet.classList.add("closing");
+    setTimeout(function () {
+      sheet.classList.remove("closing");
+      sheet.style.transform = "";
+      if (sheet.close) sheet.close(); else sheet.removeAttribute("open");
+      document.documentElement.classList.remove("sheet-open");
+    }, 260);
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest('a[href="#encargar"]');
+    if (a) { e.preventDefault(); open(a.getAttribute("data-cake")); }
+  });
+  sheet.querySelector(".sheet-close").addEventListener("click", close);
+  sheet.addEventListener("click", function (e) { if (e.target === sheet) close(); }); // toque fuera del panel
+  sheet.addEventListener("cancel", function (e) { e.preventDefault(); close(); });
+  sheet.addEventListener("close", function () { document.documentElement.classList.remove("sheet-open"); });
 
+  // Deslizar hacia abajo para cerrar
+  var handle = sheet.querySelector(".sheet-handle"), y0 = null;
+  handle.addEventListener("touchstart", function (e) { y0 = e.touches[0].clientY; }, { passive: true });
+  handle.addEventListener("touchmove", function (e) {
+    if (y0 === null) return;
+    var dy = Math.max(0, e.touches[0].clientY - y0);
+    sheet.style.transform = "translateY(" + dy + "px)";
+  }, { passive: true });
+  handle.addEventListener("touchend", function (e) {
+    var dy = e.changedTouches[0].clientY - (y0 || 0); y0 = null;
+    if (dy > 90) close(); else sheet.style.transform = "";
+  });
+
+  // Cada torta de la carta abre el panel con esa torta elegida
+  cakes.forEach(function (li) {
+    var b = document.createElement("a");
+    b.href = "#encargar"; b.className = "c-order"; b.textContent = "Encargar";
+    b.setAttribute("data-cake", cakeName(li));
+    b.setAttribute("aria-label", "Encargar " + cakeName(li));
+    li.appendChild(b);
+    li.addEventListener("click", function (e) { if (!e.target.closest("a")) open(cakeName(li)); });
+    li.addEventListener("keydown", function (e) { if (e.key === "Enter") open(cakeName(li)); });
+  });
+
+  // Enviar: el pedido llega a WhatsApp con formato de comanda
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var msg = check();
     if (msg) { error.textContent = msg; error.hidden = false; return; }
     var i = info(sel.value);
-    var text = "¡Hola Andrea! Quiero encargar una torta:\n" +
-      "• " + sel.value + " (" + i.size + ") · " + i.price + "\n" +
-      "• Retiro: " + nice(date.value) + " " + time.value + "\n" +
-      "• Nombre: " + name.value.trim() +
-      (notes.value.trim() ? "\n• Comentarios: " + notes.value.trim() : "") +
-      "\n¿Me confirmás disponibilidad y la seña? ¡Gracias!";
-    if (WHATSAPP) {
-      location.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text);
-      return;
-    }
-    var go = function () { window.open("https://ig.me/m/" + INSTAGRAM, "_blank", "noopener"); };
-    var done = function () { note.textContent = "Listo, copiamos tu mensaje. Pegalo en el chat de Instagram que se abrió y envialo."; };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, function () { note.textContent = text; });
-    } else { note.textContent = text; }
-    go();
-  });
-
-  // Cada torta de la carta lleva un acceso directo al pedido
-  cakes.forEach(function (li) {
-    var b = document.createElement("a");
-    b.href = "#encargar"; b.className = "c-order"; b.textContent = "Encargar";
-    b.setAttribute("aria-label", "Encargar " + li.querySelector(".c-name").textContent);
-    b.addEventListener("click", function () { sel.value = li.querySelector(".c-name").textContent; update(); });
-    li.appendChild(b);
+    var line = "------------------------------";
+    var text = [
+      "*PEDIDO DE TORTA*",
+      "A.T. Pastelería Creativa",
+      line,
+      "*Torta:* " + sel.value,
+      "*Tamaño:* " + i.size,
+      "*Precio:* " + i.price,
+      "*Retiro:* " + nice(date.value) + ", " + time.value,
+      "*Cliente:* " + name.value.trim()
+    ];
+    if (notes.value.trim()) text.push("*Notas:* " + notes.value.trim());
+    text.push(line, "Retiro en Alberdi 913, Pérez.", "¿Me confirmás disponibilidad y seña? ¡Gracias!");
+    location.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text.join("\n"));
   });
   update();
 })();

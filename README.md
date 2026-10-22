@@ -33,7 +33,7 @@ Funciona en cualquier hosting estático: GitHub Pages, Netlify, Vercel o Cloudfl
 
 ## Pedidos de tortas
 
-El formulario de `#encargar` arma el mensaje del pedido. En `js/main.js`, completar `WHATSAPP` con el número de Andrea (código de país sin `+`, por ejemplo `5493411234567`). Mientras esté vacío, el botón copia el mensaje y abre el chat de Instagram.
+Tocar cualquier torta (o "Encargar torta") abre un panel desde abajo con el formulario. Al enviar, se abre WhatsApp con el pedido en formato comanda. En `js/main.js`, completar `WHATSAPP` con el número de Andrea (código de país sin `+`, por ejemplo `5493411234567`). Mientras esté vacío (demo), WhatsApp deja elegir el contacto.
 
 ## Que la encuentren
 
