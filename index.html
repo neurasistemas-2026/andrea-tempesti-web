@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Bakery","name":"Andrea Tempesti Pastelería Creativa","address":{"@type":"PostalAddress","streetAddress":"Alberdi 913","addressLocality":"Pérez","addressRegion":"Santa Fe","addressCountry":"AR"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday"],"opens":"08:00","closes":"12:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Wednesday","Thursday","Friday","Saturday"],"opens":"16:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Sunday","opens":"08:00","closes":"13:00"}],"sameAs":["https://www.instagram.com/at_pasteleria_creativa/","https://linktr.ee/entrerieles.alfajor"]}
@@ -54,16 +54,16 @@
             <li><b>Domingos</b> 8 a 13 h</li>
             <li><b>Lunes y martes</b> cerrado</li>
           </ul>
-          <p class="status" id="status"><i></i><span>Alberdi 913, Pérez</span></p>
+          <p class="status" id="status">Alberdi 913, Pérez</p>
         </div>
       </div>
       <div class="hero-text">
-        <p class="eyebrow">Café &amp; Deco · Pastelería take away y casa de té</p>
-        <h1>Pastelería y té <em>en una casa centenaria</em></h1>
-        <p class="lead">Medialunas de masa madre, tortas, alfajores y una taza de té en el jardín, entre plantas, flores y madera.</p>
+        <p class="eyebrow">Café &amp; Deco · Pérez</p>
+        <h1>Pastelería y té en una casa centenaria</h1>
+        <p class="lead">Medialunas de masa madre, tortas por encargo, alfajores Entre Rieles y una taza de té en el jardín.</p>
         <div class="actions">
-          <a class="link" href="#tortas">Tortas por encargo</a>
-          <a class="link" href="https://www.instagram.com/at_pasteleria_creativa/" target="_blank" rel="noopener">Instagram</a>
+          <a class="btn btn-solid" href="#tortas"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M5 20v-6h14v6M5 14c1.5 1.2 3 1.2 4.5 0s3-1.2 4.5 0 3 1.2 4.5 0M12 10V7M12 5.2v-.4"/></svg>Encargar una torta</a>
+          <a class="btn btn-ghost" href="https://www.instagram.com/at_pasteleria_creativa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>Instagram</a>
         </div>
       </div>
     </div>
@@ -72,13 +72,18 @@
   <section class="sec" id="casa">
     <div class="wrap">
       <header class="head">
-        <p class="eyebrow">La casa</p>
-        <h2>Una arquitecta con <em>pasión por la pastelería</em></h2>
-        <p class="lead">Andrea Tempesti recuperó una casa centenaria y la convirtió en café, pastelería y tienda de deco. Desde 2023 cada rincón se piensa como un espacio para quedarse: la galería, el salón con sus estantes y el jardín con mesitas para el té.</p>
+        <p class="eyebrow">Quién está detrás</p>
+        <h2>Andrea Tempesti, arquitecta y pastelera</h2>
+        <p class="lead">Arquitecta de profesión y pastelera por pasión. En 2023 abrió Café &amp; Deco en una casa centenaria de Alberdi 913: pastelería para llevar, casa de té y tienda de deco, con un jardín para quedarse.</p>
       </header>
+      <ul class="facts">
+        <li><b>2023</b><span>abre Café &amp; Deco en una casa centenaria</span></li>
+        <li><b>17</b><span>tortas en carta, hechas a mano por encargo</span></li>
+        <li><b>1.º</b><span>alfajor de la ciudad: Entre Rieles, hecho en Pérez</span></li>
+      </ul>
       <div class="photos two">
         <img src="assets/img/salon.jpg" alt="Salón interior con mesas de madera, sillas blancas y estantes" width="800" height="1000">
-        <img src="assets/img/jardin-te.jpg" alt="Mesa con mantel blanco y servicio de té en el jardín, con sillas de hierro turquesa" width="800" height="1000">
+        <img src="assets/img/patio.jpg" alt="Patio con piso de baldosas, sillones de madera y santa rita en flor" width="800" height="1000">
       </div>
     </div>
   </section>
@@ -86,21 +91,43 @@
   <section class="sec" id="pasteleria">
     <div class="wrap">
       <header class="head">
-        <p class="eyebrow">Pastelería take away</p>
-        <h2>Horneado cada mañana, <em>para llevar o quedarse</em></h2>
+        <p class="eyebrow">Lo que hacemos</p>
+        <h2>Todo hecho a mano, todos los días</h2>
       </header>
-      <ul class="menu">
-        <li><b>Medialunas</b><span>de manteca</span></li>
-        <li><b>Croissants</b><span>100% manteca</span></li>
-        <li><b>Masa madre</b><span>panificados</span></li>
-        <li><b>Pastelería creativa</b><span>tortas y cosas dulces</span></li>
+      <ul class="offer">
+        <li>
+          <a href="https://www.instagram.com/at_pasteleria_creativa/" target="_blank" rel="noopener">
+            <img src="assets/img/pizarra.jpg" alt="Pizarra de colores: medialunas, croissants, 100% manteca, masa madre" width="800" height="1000">
+            <h3>Pastelería take away</h3>
+            <p>Medialunas y croissants 100% manteca, panes de masa madre.</p>
+            <span class="more">Ver lo del día <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a href="#tortas">
+            <div class="tile"><b>17</b><span>tortas en carta</span></div>
+            <h3>Tortas por encargo</h3>
+            <p>Rogel, chocotorta, cheesecakes, tartas y más. Desde $45.000.</p>
+            <span class="more">Ver carta y precios <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a href="#entre-rieles">
+            <img src="assets/img/rieles/f045.webp" alt="Alfajores Entre Rieles cortados al medio" width="450" height="800">
+            <h3>Alfajores Entre Rieles</h3>
+            <p>El primer alfajor de nuestra ciudad, hecho en Pérez.</p>
+            <span class="more">Conocerlos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </li>
+        <li>
+          <a href="#visitanos">
+            <img src="assets/img/jardin-te.jpg" alt="Mesa con mantel blanco y servicio de té en el jardín" width="800" height="1000">
+            <h3>Casa de té</h3>
+            <p>Té, café y algo dulce en el salón o en el jardín.</p>
+            <span class="more">Horarios <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </li>
       </ul>
-      <div class="photos three">
-        <img src="assets/img/pizarra.jpg" alt="Pizarra de colores: medialunas, croissants, 100% manteca, masa madre" width="800" height="1000">
-        <img src="assets/img/mesa.jpg" alt="Florero con flores naranjas sobre una mesa, frente a la vidriera" width="800" height="1000">
-        <img src="assets/img/flores.jpg" alt="Flores amarillas y fucsias frente a la pared con flores dibujadas" width="800" height="1000">
-      </div>
-      <p class="center"><a class="link" href="https://www.instagram.com/at_pasteleria_creativa/" target="_blank" rel="noopener">Ver lo del día en Instagram</a></p>
     </div>
   </section>
 
@@ -108,66 +135,113 @@
     <div class="wrap">
       <header class="head">
         <p class="eyebrow">Tortas por encargo</p>
-        <h2>Hechas a mano, <em>con ingredientes frescos</em></h2>
-        <p class="lead">Encargá con 48 horas de anticipación o consultá qué hay disponible. Todas son tamaño grande, salvo donde se indica.</p>
+        <h2>La carta de tortas</h2>
+        <p class="lead">Hechas a mano con ingredientes frescos. Encargá con 48 horas de anticipación. Todas son tamaño grande, salvo donde se indica.</p>
       </header>
-      <ul class="cakes">
-        <li><span class="c-name">Rogel</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$60.000</span></li>
-        <li><span class="c-name">Torta de chocolate</span><span class="c-size">20 porciones</span><span class="c-price">$70.000</span></li>
-        <li><span class="c-name">Chocotorta</span><span class="c-size">18 a 20 · mediana 10 a 12</span><span class="c-price">$65.000 · $45.000</span></li>
-        <li><span class="c-name">Key lime pie</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
-        <li><span class="c-name">Tiramisú</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$70.000</span></li>
-        <li><span class="c-name">New York cheesecake</span><span class="c-size">horneado · 10 a 12</span><span class="c-price">$65.000</span></li>
-        <li><span class="c-name">Cheesecake de frutos rojos</span><span class="c-size">frío · 10 a 12</span><span class="c-price">$65.000</span></li>
-        <li><span class="c-name">Streusel de manzana</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$55.000</span></li>
-        <li><span class="c-name">Torta de ricota</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$55.000</span></li>
-        <li><span class="c-name">Brownie con dulce de leche, crema y frutos rojos</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
-        <li><span class="c-name">Brownie con nueces, merengue y mousse</span><span class="c-size">15 a 20 porciones</span><span class="c-price">$65.000</span></li>
-        <li><span class="c-name">Tarta de frutas</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
-        <li><span class="c-name">Tarta de frutillas</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
-        <li><span class="c-name">Lemon pie</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$55.000</span></li>
-        <li><span class="c-name">Tarta Snickers</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$60.000</span></li>
-        <li><span class="c-name">Soufflé de nueces</span><span class="c-size">sin TACC · 8 a 10</span><span class="c-price">$70.000</span></li>
-        <li><span class="c-name">Torta para eventos</span><span class="c-size">mínimo 1,5 kg · 15 a 20</span><span class="c-price">$45.000 el kg</span></li>
-      </ul>
+      <div class="carta">
+        <aside class="preview" aria-hidden="true">
+          <div class="preview-frame">
+            <img class="preview-img" alt="" hidden>
+            <div class="preview-card">
+              <span class="pv-cat">Clásicas</span>
+              <b class="pv-name">Rogel</b>
+              <span class="pv-size">10 a 12 porciones</span>
+              <span class="pv-price">$60.000</span>
+            </div>
+          </div>
+        </aside>
+        <div class="cake-list">
+        <div class="cake-group">
+          <h3>Clásicas</h3>
+          <ul>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/rogel.jpg"><span class="c-name">Rogel</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$60.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/torta-de-chocolate.jpg"><span class="c-name">Torta de chocolate</span><span class="c-size">20 porciones</span><span class="c-price">$70.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/chocotorta.jpg"><span class="c-name">Chocotorta</span><span class="c-size">18 a 20 porciones · mediana 10 a 12</span><span class="c-price">$65.000 · $45.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/torta-de-ricota.jpg"><span class="c-name">Torta de ricota</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$55.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/tiramisu.jpg"><span class="c-name">Tiramisú</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$70.000</span></li>
+          </ul>
+        </div>
+        <div class="cake-group">
+          <h3>Cheesecakes y pies</h3>
+          <ul>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/new-york-cheesecake.jpg"><span class="c-name">New York cheesecake</span><span class="c-size">horneado · 10 a 12 porciones</span><span class="c-price">$65.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/cheesecake-de-frutos-rojos.jpg"><span class="c-name">Cheesecake de frutos rojos</span><span class="c-size">frío · 10 a 12 porciones</span><span class="c-price">$65.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/key-lime-pie.jpg"><span class="c-name">Key lime pie</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/lemon-pie.jpg"><span class="c-name">Lemon pie</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$55.000</span></li>
+          </ul>
+        </div>
+        <div class="cake-group">
+          <h3>Brownies</h3>
+          <ul>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/brownie-con-dulce-de-leche-crema-y-frutos-rojos.jpg"><span class="c-name">Brownie con dulce de leche, crema y frutos rojos</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/brownie-con-nueces-merengue-y-mousse.jpg"><span class="c-name">Brownie con nueces, merengue y mousse</span><span class="c-size">15 a 20 porciones</span><span class="c-price">$65.000</span></li>
+          </ul>
+        </div>
+        <div class="cake-group">
+          <h3>Tartas</h3>
+          <ul>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/tarta-de-frutas.jpg"><span class="c-name">Tarta de frutas</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/tarta-de-frutillas.jpg"><span class="c-name">Tarta de frutillas</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$65.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/tarta-snickers.jpg"><span class="c-name">Tarta Snickers</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$60.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/streusel-de-manzana.jpg"><span class="c-name">Streusel de manzana</span><span class="c-size">10 a 12 porciones</span><span class="c-price">$55.000</span></li>
+          </ul>
+        </div>
+        <div class="cake-group">
+          <h3>Especiales</h3>
+          <ul>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/souffle-de-nueces.jpg"><span class="c-name">Soufflé de nueces</span><span class="c-size">sin TACC · 8 a 10 porciones</span><span class="c-price">$70.000</span></li>
+            <li class="cake" tabindex="0" data-img="assets/img/tortas/torta-para-eventos.jpg"><span class="c-name">Torta para eventos</span><span class="c-size">mínimo 1,5 kg · 15 a 20 porciones</span><span class="c-price">$45.000 el kg</span></li>
+          </ul>
+        </div>
+        </div>
+      </div>
       <ul class="terms">
         <li>Pedidos con 48 h de anticipación y seña</li>
-        <li>Retiro en Alberdi 913, sin envío a domicilio</li>
-        <li>Solo tortas de la carta, decoradas con flores o golosinas</li>
+        <li>Retiro en Alberdi 913, sin envío</li>
+        <li>Decoración con flores o golosinas</li>
         <li>Conservar en heladera</li>
       </ul>
+      <p class="center actions"><a class="btn btn-solid" href="https://www.instagram.com/at_pasteleria_creativa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>Encargar por Instagram</a></p>
     </div>
   </section>
 
-  <section class="sec rieles" id="entre-rieles">
-    <div class="wrap">
-      <header class="head">
-        <div class="rieles-logo" role="img" aria-label="Entre Rieles, alfajores artesanales"></div>
-        <p class="eyebrow">Alfajores artesanales</p>
-        <h2>Creamos el primer alfajor <em>de nuestra ciudad</em></h2>
-        <p class="lead">Entre Rieles es nuestro alfajor, hecho en Pérez. Nuestra historia, nuestro sabor.</p>
-      </header>
-      <div class="rieles-video">
-        <img id="rieles-seq" src="assets/img/rieles/f001.webp" alt="Seis alfajores Entre Rieles cortados al medio sobre un mapa antiguo, que se separan y se vuelven a juntar al hacer scroll" width="450" height="800">
+  <section class="rieles" id="entre-rieles">
+    <div class="rieles-track">
+      <div class="rieles-stage">
+        <div class="wrap rieles-grid">
+          <div class="rieles-text">
+            <div class="rieles-logo" role="img" aria-label="Entre Rieles, alfajores artesanales"></div>
+            <p class="eyebrow">Alfajores artesanales</p>
+            <ol class="captions">
+              <li class="on">Creamos el primer alfajor de nuestra ciudad</li>
+              <li>Hecho en Pérez</li>
+              <li>Nuestra historia, nuestro sabor</li>
+            </ol>
+            <div class="actions"><a class="btn btn-solid" href="https://linktr.ee/entrerieles.alfajor" target="_blank" rel="noopener">Pedir alfajores <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+          </div>
+          <div class="rieles-video">
+            <img id="rieles-seq" src="assets/img/rieles/f001.webp" alt="Seis alfajores Entre Rieles cortados al medio sobre un mapa antiguo, que se separan y se vuelven a juntar al hacer scroll" width="450" height="800">
+          </div>
+        </div>
       </div>
-      <p class="center"><a class="link" href="https://linktr.ee/entrerieles.alfajor" target="_blank" rel="noopener">Pedir alfajores</a></p>
     </div>
+    <div class="rieles-cta"><a class="btn btn-solid" href="https://linktr.ee/entrerieles.alfajor" target="_blank" rel="noopener">Pedir alfajores</a></div>
   </section>
 
   <section class="sec" id="rincones">
     <div class="wrap">
       <header class="head">
         <p class="eyebrow">Rincones</p>
-        <h2>Flores, madera <em>y sol de patio</em></h2>
+        <h2>Flores, madera y sol de patio</h2>
         <p class="lead">Galerías, bancos al sol y canteros que cambian con cada estación.</p>
       </header>
       <div class="photos three">
-        <img src="assets/img/patio.jpg" alt="Patio con piso de baldosas, sillones de madera y santa rita en flor" width="800" height="1000">
         <img src="assets/img/sillon.jpg" alt="Sillón azul con almohadones y mesa baja de madera en el patio" width="800" height="1000">
         <img src="assets/img/geranios.jpg" alt="Malvones rojos en una canasta frente al ventanal" width="800" height="1000">
+        <img src="assets/img/mesa.jpg" alt="Florero con flores naranjas sobre una mesa, frente a la vidriera" width="800" height="1000">
         <img src="assets/img/bici.jpg" alt="Bicicleta celeste con canasto de flores en la entrada" width="800" height="1000">
         <img src="assets/img/rincon.jpg" alt="Banco con almohadón blanco y una flor roja en primer plano" width="800" height="1000">
-        <img src="assets/img/portada-jardin.jpg" alt="Sillas de hierro turquesa en el jardín" width="900" height="1150">
+        <img src="assets/img/flores.jpg" alt="Flores amarillas y fucsias frente a la pared con flores dibujadas" width="800" height="1000">
       </div>
     </div>
   </section>
@@ -176,22 +250,22 @@
     <div class="wrap">
       <header class="head">
         <p class="eyebrow">Visitanos</p>
-        <h2>Alberdi 913, <em>Pérez</em></h2>
+        <h2>Alberdi 913, Pérez</h2>
       </header>
       <ul class="hours" id="hours">
-          <li class="closed" data-day="1"><span class="d">Lunes</span><span class="h">Cerrado</span></li>
-          <li class="closed" data-day="2"><span class="d">Martes</span><span class="h">Cerrado</span></li>
-          <li data-day="3"><span class="d">Miércoles</span><span class="h">8 a 12 · 16 a 20</span></li>
-          <li data-day="4"><span class="d">Jueves</span><span class="h">8 a 12 · 16 a 20</span></li>
-          <li data-day="5"><span class="d">Viernes</span><span class="h">8 a 12 · 16 a 20</span></li>
-          <li data-day="6"><span class="d">Sábado</span><span class="h">8 a 12 · 16 a 20</span></li>
-          <li data-day="0"><span class="d">Domingo</span><span class="h">8 a 13</span></li>
-        </ul>
-      <ul class="contact">
-        <li><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Alberdi%20913%2C%20P%C3%A9rez%2C%20Santa%20Fe" target="_blank" rel="noopener">Cómo llegar</a></li>
-        <li><a class="link" href="https://www.instagram.com/at_pasteleria_creativa/" target="_blank" rel="noopener">@at_pasteleria_creativa</a></li>
-        <li><a class="link" href="https://linktr.ee/entrerieles.alfajor" target="_blank" rel="noopener">Entre Rieles</a></li>
+        <li class="closed" data-day="1"><span class="d">Lunes</span><span class="h">Cerrado</span></li>
+        <li class="closed" data-day="2"><span class="d">Martes</span><span class="h">Cerrado</span></li>
+        <li data-day="3"><span class="d">Miércoles</span><span class="h">8 a 12 · 16 a 20</span></li>
+        <li data-day="4"><span class="d">Jueves</span><span class="h">8 a 12 · 16 a 20</span></li>
+        <li data-day="5"><span class="d">Viernes</span><span class="h">8 a 12 · 16 a 20</span></li>
+        <li data-day="6"><span class="d">Sábado</span><span class="h">8 a 12 · 16 a 20</span></li>
+        <li data-day="0"><span class="d">Domingo</span><span class="h">8 a 13</span></li>
       </ul>
+      <div class="actions contact">
+        <a class="btn btn-solid" href="https://www.google.com/maps/search/?api=1&amp;query=Alberdi%20913%2C%20P%C3%A9rez%2C%20Santa%20Fe" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cómo llegar</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/at_pasteleria_creativa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg>@at_pasteleria_creativa</a>
+        <a class="btn btn-ghost" href="https://linktr.ee/entrerieles.alfajor" target="_blank" rel="noopener">Entre Rieles</a>
+      </div>
     </div>
   </section>
 </main>

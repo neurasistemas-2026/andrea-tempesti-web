@@ -24,7 +24,8 @@ y abrir http://localhost:8000. (Abrir el archivo directo con doble clic no muest
 
 - **Colores y letras:** variables al comienzo de `css/styles.css`.
 - **Horarios:** la lista `#hours` en `index.html` y el objeto `H` en `js/main.js` (que calcula "Abierto ahora").
-- **Tortas y precios:** la lista `.cakes` en `index.html`.
+- **Tortas y precios:** los `.cake` dentro de `#tortas` en `index.html`.
+- **Fotos de tortas:** guardar cada foto en `assets/img/tortas/` con el nombre que figura en su `data-img` (por ejemplo `rogel.jpg`, `chocotorta.jpg`, `new-york-cheesecake.jpg`). Formato vertical 4:5, unos 800x1000. La web las detecta sola: si la foto existe la muestra, si no muestra la ficha con nombre y precio.
 
 ## Publicación
 
