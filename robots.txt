@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://neurasistemas-2026.github.io/andrea-tempesti-web/sitemap.xml

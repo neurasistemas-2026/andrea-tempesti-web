@@ -30,3 +30,13 @@ y abrir http://localhost:8000. (Abrir el archivo directo con doble clic no muest
 ## Publicación
 
 Funciona en cualquier hosting estático: GitHub Pages, Netlify, Vercel o Cloudflare Pages.
+
+## Pedidos de tortas
+
+El formulario de `#encargar` arma el mensaje del pedido. En `js/main.js`, completar `WHATSAPP` con el número de Andrea (código de país sin `+`, por ejemplo `5493411234567`). Mientras esté vacío, el botón copia el mensaje y abre el chat de Instagram.
+
+## Que la encuentren
+
+- `robots.txt` y `sitemap.xml` ya están listos para Google.
+- Datos estructurados (negocio local + preguntas frecuentes) en el `<head>` de `index.html`.
+- Pendiente fuera del sitio: perfil de Google Business con dirección, horarios, fotos y el link a esta web; alta en Google Search Console; link de la web en la bio de Instagram y en el Linktree.

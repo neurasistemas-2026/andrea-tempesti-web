@@ -133,3 +133,103 @@
   }
   show(cakes[0]);
 })();
+
+// ---------- Pedido de tortas ----------
+// Número de WhatsApp de Andrea con código de país, sin espacios ni "+" (por ejemplo "5493411234567").
+// Mientras esté vacío, el pedido se envía por mensaje directo de Instagram.
+var WHATSAPP = "";
+var INSTAGRAM = "at_pasteleria_creativa";
+
+(function () {
+  var form = document.getElementById("order-form");
+  if (!form) return;
+  var sel = document.getElementById("o-cake");
+  var date = document.getElementById("o-date");
+  var time = document.getElementById("o-time");
+  var name = document.getElementById("o-name");
+  var notes = document.getElementById("o-notes");
+  var summary = document.getElementById("o-summary");
+  var error = document.getElementById("o-error");
+  var send = document.getElementById("o-send");
+  var note = document.getElementById("o-note");
+  var cakes = Array.prototype.slice.call(document.querySelectorAll(".cake"));
+
+  // Opciones a partir de la carta, para no repetir datos
+  document.querySelectorAll(".cake-group").forEach(function (g) {
+    var og = document.createElement("optgroup");
+    og.label = g.querySelector("h3").textContent;
+    g.querySelectorAll(".cake").forEach(function (li) {
+      var o = document.createElement("option");
+      o.value = li.querySelector(".c-name").textContent;
+      o.textContent = o.value + " · " + li.querySelector(".c-price").textContent;
+      og.appendChild(o);
+    });
+    sel.appendChild(og);
+  });
+  var info = function (n) {
+    var li = cakes.find(function (c) { return c.querySelector(".c-name").textContent === n; });
+    return li ? { size: li.querySelector(".c-size").textContent, price: li.querySelector(".c-price").textContent } : { size: "", price: "" };
+  };
+
+  // Mínimo 48 h; lunes y martes cerrado
+  var pad = function (n) { return String(n).padStart(2, "0"); };
+  var iso = function (d) { return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); };
+  var min = new Date(); min.setDate(min.getDate() + 2);
+  while (min.getDay() === 1 || min.getDay() === 2) min.setDate(min.getDate() + 1);
+  date.min = iso(min);
+  date.value = iso(min);
+  var days = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+  var nice = function (v) { var p = v.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]); return days[d.getDay()] + " " + d.getDate() + "/" + (d.getMonth() + 1); };
+
+  function check() {
+    var p = date.value.split("-"); var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    if (!date.value) return "Elegí el día de retiro.";
+    if (date.value < date.min) return "Las tortas se encargan con 48 horas de anticipación. Elegí desde el " + nice(date.min) + ".";
+    if (d.getDay() === 1 || d.getDay() === 2) return "Lunes y martes está cerrado. Elegí otro día de retiro.";
+    if (d.getDay() === 0 && time.value === "a la tarde") return "Los domingos abrimos solo a la mañana (8 a 13 h).";
+    if (!name.value.trim()) return "Escribí tu nombre para que Andrea sepa de quién es el pedido.";
+    return "";
+  }
+  function update() {
+    var i = info(sel.value);
+    summary.textContent = sel.value + " · " + i.size + " · " + i.price + (date.value ? " · retiro el " + nice(date.value) + " " + time.value : "");
+    error.hidden = true;
+  }
+  [sel, date, time, name].forEach(function (el) { el.addEventListener("change", update); });
+
+  send.querySelector("span").textContent = WHATSAPP ? "Enviar por WhatsApp" : "Enviar por Instagram";
+  if (!WHATSAPP) note.textContent = "Al tocar el botón copiamos tu mensaje y se abre el chat de Instagram: solo pegalo y envialo. Retiro en Alberdi 913, sin envío.";
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var msg = check();
+    if (msg) { error.textContent = msg; error.hidden = false; return; }
+    var i = info(sel.value);
+    var text = "¡Hola Andrea! Quiero encargar una torta:\n" +
+      "• " + sel.value + " (" + i.size + ") · " + i.price + "\n" +
+      "• Retiro: " + nice(date.value) + " " + time.value + "\n" +
+      "• Nombre: " + name.value.trim() +
+      (notes.value.trim() ? "\n• Comentarios: " + notes.value.trim() : "") +
+      "\n¿Me confirmás disponibilidad y la seña? ¡Gracias!";
+    if (WHATSAPP) {
+      location.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(text);
+      return;
+    }
+    var go = function () { window.open("https://ig.me/m/" + INSTAGRAM, "_blank", "noopener"); };
+    var done = function () { note.textContent = "Listo, copiamos tu mensaje. Pegalo en el chat de Instagram que se abrió y envialo."; };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, function () { note.textContent = text; });
+    } else { note.textContent = text; }
+    go();
+  });
+
+  // Cada torta de la carta lleva un acceso directo al pedido
+  cakes.forEach(function (li) {
+    var b = document.createElement("a");
+    b.href = "#encargar"; b.className = "c-order"; b.textContent = "Encargar";
+    b.setAttribute("aria-label", "Encargar " + li.querySelector(".c-name").textContent);
+    b.addEventListener("click", function () { sel.value = li.querySelector(".c-name").textContent; update(); });
+    li.appendChild(b);
+  });
+  update();
+})();
