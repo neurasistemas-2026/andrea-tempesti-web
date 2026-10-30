@@ -7,8 +7,8 @@ Sitio web estático de la pastelería take away y casa de té de Andrea Tempesti
 ```
 index.html          Página única con todas las secciones
 css/styles.css      Estilos (paleta y tipografías en :root)
-js/main.js          Estado "abierto/cerrado", animaciones al hacer scroll y la secuencia de los alfajores
-assets/img/         Fotos del local, logos (máscaras PNG) y cuadros del video de Entre Rieles
+js/main.js          Animaciones al hacer scroll y pedidos
+assets/img/         Fotos del local, logos (máscaras PNG) y fotos de Entre Rieles
 assets/favicon.png
 ```
 
@@ -23,17 +23,19 @@ y abrir http://localhost:8000. (Abrir el archivo directo con doble clic no muest
 ## Dónde cambiar cosas
 
 - **Colores y letras:** variables al comienzo de `css/styles.css`.
-- **Horarios:** la lista `#hours` en `index.html` y el objeto `H` en `js/main.js` (que calcula "Abierto ahora").
-- **Tortas y precios:** los `.cake` dentro de `#tortas` en `index.html`.
+- **Horarios:** la franja `.hours-bar` en `index.html`.
+- **Productos para llevar y precios:** los `.cake` dentro de `#tortas` y de `#alfajores` en `index.html`. Los que dicen "Consultar" esperan su precio en `.c-price`. `data-kind` define las reglas del pedido (sin atributo: torta, 48 h; `otro`: desde el día siguiente; `desayuno`: día anterior, envío gratis y pago del 100%) y `data-gustos` muestra el campo de gustos.
+- **Alfajores:** dentro de `#alfajores` en `index.html`, cada `.circle` despliega su `.sector`. Las tarjetas `.flavor-card` tienen fotos en `assets/img/alfajores/` y `data-gusto` completa el sabor en el pedido. El `.cake-group` oculto alimenta el formulario: si cambia un precio, hay que actualizarlo también ahí.
+- **Carta del local (sin precios):** las listas de `.local-board` dentro de `#en-el-local` en `index.html`.
 - **Fotos de tortas:** guardar cada foto en `assets/img/tortas/` con el nombre que figura en su `data-img` (por ejemplo `rogel.jpg`, `chocotorta.jpg`, `new-york-cheesecake.jpg`). Formato vertical 4:5, unos 800x1000. La web las detecta sola: si la foto existe la muestra, si no muestra la ficha con nombre y precio.
 
 ## Publicación
 
 Funciona en cualquier hosting estático: GitHub Pages, Netlify, Vercel o Cloudflare Pages.
 
-## Pedidos de tortas
+## Pedidos
 
-Tocar cualquier torta (o "Encargar torta") abre un panel desde abajo con el formulario. Al enviar, se abre WhatsApp con el pedido en formato comanda. En `js/main.js`, completar `WHATSAPP` con el número de Andrea (código de país sin `+`, por ejemplo `5493411234567`). Mientras esté vacío (demo), WhatsApp deja elegir el contacto.
+Tocar cualquier producto (o "Hacer pedido") abre un panel desde abajo con el formulario. Al enviar, se abre WhatsApp con el pedido en formato comanda. En `js/main.js`, completar `WHATSAPP` con el número de Andrea (código de país sin `+`, por ejemplo `5493411234567`). Mientras esté vacío (demo), WhatsApp deja elegir el contacto.
 
 ## Que la encuentren
 
