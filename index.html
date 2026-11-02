@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=28">
+<link rel="stylesheet" href="css/styles.css?v=29">
 <script type="application/ld+json">
 [
  {
@@ -345,31 +345,36 @@
         <h2>Elegí tu alfajor</h2>
       </header>
       <ul class="circles">
-        <li>
+        <li class="multi">
           <button class="circle" type="button" aria-expanded="false" aria-controls="sector-santafesino">
             <img src="assets/img/alfajores/n3.jpg" alt="" width="800" height="1000" loading="lazy">
             <b>Santafesinos</b>
             <span>6 gustos</span>
           </button>
         </li>
-        <li>
+        <li class="multi">
           <button class="circle" type="button" aria-expanded="false" aria-controls="sector-cordobes">
-            <span class="circle-fill" aria-hidden="true">C</span>
+            <img src="assets/img/alfajores/cordobes.jpg" alt="" width="800" height="1000" loading="lazy">
             <b>Cordobeses</b>
             <span>3 gustos</span>
           </button>
         </li>
         <li>
           <button class="circle" type="button" aria-expanded="false" aria-controls="sector-marplatense">
-            <span class="circle-fill" aria-hidden="true">M</span>
+            <img src="assets/img/alfajores/marplatense.jpg" alt="" width="800" height="1000" loading="lazy">
             <b>Marplatense</b>
-            <span>1 gusto</span>
           </button>
         </li>
         <li>
           <button class="circle" type="button" aria-expanded="false" aria-controls="sector-pistacho">
-            <img src="assets/img/alfajores/n4.jpg" alt="" width="800" height="1000" loading="lazy">
+            <img src="assets/img/alfajores/pistacho.jpg" alt="" width="800" height="1000" loading="lazy">
             <b>Pistacho</b>
+          </button>
+        </li>
+        <li>
+          <button class="circle" type="button" aria-expanded="false" aria-controls="sector-maicena">
+            <img src="assets/img/alfajores/maicena.jpg" alt="" width="800" height="1000" loading="lazy">
+            <b>Maicena</b>
           </button>
         </li>
       </ul>
@@ -426,37 +431,65 @@
       </ul>
       </div>
       <div class="sector" id="sector-cordobes" hidden>
-        <ul class="flavors solo">
-          <li>
+        <p class="sector-intro">Baño liviano de glasé y limón. Masa tierna, relleno en tres sabores.</p>
+        <ul class="flavors">
+        <li>
           <article class="flavor-card">
-            <h3>Alfajor cordobés</h3>
-            <p class="eyebrow">3 gustos</p>
-            <a class="btn btn-solid" href="#encargar" data-cake="Alfajor cordobés">Pedir</a><p class="flavor-desc">Andrea te pasa los gustos al confirmar el pedido.</p>
+            <img src="assets/img/alfajores/cordobes-ddl.jpg" alt="Alfajores cordobeses rellenos de dulce de leche" width="800" height="1000" loading="lazy">
+            <h3>Dulce de leche repostero</h3>
+            <a class="btn btn-solid" href="#encargar" data-cake="Alfajor cordobés" data-gusto="Dulce de leche repostero">Pedir este sabor</a>
           </article>
-          </li>
+        </li>
+        <li>
+          <article class="flavor-card">
+            <img src="assets/img/alfajores/membrillo.jpg" alt="Panes de dulce de membrillo casero envasados y cortados en barritas" width="800" height="1000" loading="lazy">
+            <h3>Membrillo casero</h3>
+            <a class="btn btn-solid" href="#encargar" data-cake="Alfajor cordobés" data-gusto="Membrillo casero">Pedir este sabor</a>
+            <p class="flavor-desc">Relleno de dulce de membrillo casero, de elaboración propia.</p>
+          </article>
+        </li>
+        <li>
+          <article class="flavor-card">
+            <img src="assets/img/alfajores/cordobes.jpg" alt="Alfajores cordobeses con baño de glasé sobre una rejilla" width="800" height="1000" loading="lazy">
+            <h3>Membrillo, nueces y coco rallado</h3>
+            <a class="btn btn-solid" href="#encargar" data-cake="Alfajor cordobés" data-gusto="Membrillo, nueces y coco rallado">Pedir este sabor</a>
+          </article>
+        </li>
         </ul>
       </div>
       <div class="sector" id="sector-marplatense" hidden>
         <ul class="flavors solo">
-          <li>
+        <li>
           <article class="flavor-card">
+            <img src="assets/img/alfajores/marplatense-corte.jpg" alt="Alfajor marplatense partido al medio, con masa de cacao, dulce de leche y baño de chocolate" width="800" height="1000" loading="lazy">
             <h3>Alfajor marplatense</h3>
-            <p class="eyebrow">1 gusto</p>
             <a class="btn btn-solid" href="#encargar" data-cake="Alfajor marplatense">Pedir</a>
+            <p class="flavor-desc">Masa tierna de cacao Ecuador, relleno de abundante dulce de leche repostero y cubierto de chocolate semiamargo.</p>
           </article>
-          </li>
+        </li>
         </ul>
       </div>
       <div class="sector" id="sector-pistacho" hidden>
         <ul class="flavors solo">
-          <li>
+        <li>
           <article class="flavor-card">
-            <img src="assets/img/alfajores/n4.jpg" alt="Alfajor cortado al medio, con relleno verde de pistacho, chocolate blanco y pistachos picados" width="800" height="1000" loading="lazy">
-            <h3>Pistacho y chocolate blanco</h3>
-            <a class="btn btn-solid" href="#encargar" data-cake="Alfajor de pistacho">Pedir este sabor</a>
-            <p class="flavor-desc">Masa estilo Rogel, relleno de pasta de pistacho, cubierto de chocolate blanco con topping de garrapiñada de pistachos.</p>
+            <img src="assets/img/alfajores/pistacho-corte.jpg" alt="Alfajor de pistacho cortado al medio, con relleno verde, centro de frutos rojos y pistachos picados" width="800" height="1000" loading="lazy">
+            <h3>Alfajor de pistacho</h3>
+            <a class="btn btn-solid" href="#encargar" data-cake="Alfajor de pistacho">Pedir</a>
           </article>
-          </li>
+        </li>
+        </ul>
+      </div>
+      <div class="sector" id="sector-maicena" hidden>
+        <ul class="flavors solo">
+        <li>
+          <article class="flavor-card">
+            <img src="assets/img/alfajores/maicena.jpg" alt="Alfajores de maicena con dulce de leche y coco rallado" width="800" height="1000" loading="lazy">
+            <h3>Alfajor de maicena</h3>
+            <a class="btn btn-solid" href="#encargar" data-cake="Alfajor de maicena">Pedir</a>
+            <p class="flavor-desc">Masa suave aromatizada con vainilla y limón, relleno de dulce de leche repostero y rodeado de coco.</p>
+          </article>
+        </li>
         </ul>
       </div>
       <!-- Datos de los alfajores para el formulario de pedido -->
@@ -464,9 +497,10 @@
         <h3>Alfajores Entre Rieles</h3>
         <ul>
           <li class="cake" tabindex="0" data-kind="otro" data-gustos="6" data-gustos-ej="Por ejemplo: 3 de pistacho y 3 de limón" data-img="assets/img/tortas/alfajor-santafesino.jpg"><span class="c-name">Alfajor santafesino</span><span class="c-size">6 gustos</span><span class="c-price">Consultar</span></li>
-          <li class="cake" tabindex="0" data-kind="otro" data-gustos="3" data-img="assets/img/tortas/alfajor-cordobes.jpg"><span class="c-name">Alfajor cordobés</span><span class="c-size">3 gustos</span><span class="c-price">Consultar</span></li>
-          <li class="cake" tabindex="0" data-kind="otro" data-img="assets/img/tortas/alfajor-marplatense.jpg"><span class="c-name">Alfajor marplatense</span><span class="c-size">1 gusto</span><span class="c-price">Consultar</span></li>
-          <li class="cake" tabindex="0" data-kind="otro" data-img="assets/img/tortas/alfajor-de-pistacho.jpg"><span class="c-name">Alfajor de pistacho</span><span class="c-size">Pistacho y chocolate blanco</span><span class="c-price">Consultar</span></li>
+          <li class="cake" tabindex="0" data-kind="otro" data-gustos="3" data-gustos-ej="Por ejemplo: 3 de dulce de leche y 3 de membrillo" data-img="assets/img/tortas/alfajor-cordobes.jpg"><span class="c-name">Alfajor cordobés</span><span class="c-size">3 gustos</span><span class="c-price">Consultar</span></li>
+          <li class="cake" tabindex="0" data-kind="otro" data-img="assets/img/tortas/alfajor-marplatense.jpg"><span class="c-name">Alfajor marplatense</span><span class="c-size">Cacao, dulce de leche y chocolate semiamargo</span><span class="c-price">Consultar</span></li>
+          <li class="cake" tabindex="0" data-kind="otro" data-img="assets/img/tortas/alfajor-de-pistacho.jpg"><span class="c-name">Alfajor de pistacho</span><span class="c-size">Pistacho</span><span class="c-price">Consultar</span></li>
+          <li class="cake" tabindex="0" data-kind="otro" data-img="assets/img/tortas/alfajor-de-maicena.jpg"><span class="c-name">Alfajor de maicena</span><span class="c-size">Dulce de leche y coco</span><span class="c-price">Consultar</span></li>
         </ul>
       </div>
     </div>

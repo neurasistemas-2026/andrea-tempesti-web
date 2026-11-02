@@ -265,8 +265,14 @@ p { margin: 0; }
 }
 .rieles-buy { padding-block: clamp(3rem, 6vw, 5rem); }
 .rieles-buy .head { margin-bottom: clamp(1.8rem, 4vw, 2.6rem); }
-.circles { list-style: none; margin: 0 auto; padding: 0; max-width: 860px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.6rem clamp(12px, 2.5vw, 28px); }
-@media (max-width: 700px) { .circles { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 380px; } }
+.circles { list-style: none; margin: 0 auto; padding: 0; max-width: 980px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.6rem clamp(12px, 2.5vw, 28px); }
+/* En celular: arriba los de varios gustos (de a dos), abajo los de un gusto (de a tres) */
+@media (max-width: 700px) {
+  .circles { grid-template-columns: repeat(6, minmax(0, 1fr)); max-width: 400px; column-gap: 10px; }
+  .circles li { grid-column: span 2; }
+  .circles li.multi { grid-column: span 3; }
+  .circles li:not(.multi) .circle b { font-size: 1rem; }
+}
 .circle { display: grid; justify-items: center; gap: .15rem; width: 100%; padding: 0; border: 0; background: none; font: inherit; color: var(--ink); cursor: pointer; }
 .circle img, .circle-fill { width: min(100%, 150px); aspect-ratio: 1; border-radius: 50%; margin-bottom: .55rem; outline: 2px solid transparent; outline-offset: 4px; transition: outline-color .25s ease, transform .35s ease; }
 .circle img { object-fit: cover; }
@@ -277,6 +283,7 @@ p { margin: 0; }
 .circle b { font-family: var(--display); font-weight: 400; font-size: 1.15rem; line-height: 1.25; }
 .circle span:last-child { font-size: var(--s-xs); color: var(--soft); }
 .sector { margin-top: clamp(2rem, 4vw, 3rem); }
+.sector-intro { max-width: 46ch; margin: 0 auto clamp(1.4rem, 3vw, 2rem); text-align: center; color: var(--soft); }
 .flavors { list-style: none; margin: 0 auto; padding: 0; max-width: 1080px; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 2.5vw, 28px); }
 @media (max-width: 960px) { .flavors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .flavors.solo { grid-template-columns: minmax(0, 340px); justify-content: center; }
